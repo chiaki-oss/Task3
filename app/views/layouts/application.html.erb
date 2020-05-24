@@ -10,6 +10,47 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1>Bookers</h1>
+    </header>
+    <nav>
+      <ul class="nav-list">
+        <% if user_signed_in? %>
+        
+        <li class="list-item">
+          <%= link_to "Home","#" %>
+        </li>
+        <li class="list-item">
+          <%= link_to "Users","#" %>
+        </li>
+        <li class="list-item">
+          <%= link_to "Books","#" %>
+        </li>
+        <li class="list-item">
+          <%= link_to "logout",destroy_user_session_path, method: :delete %>
+        </li>
+
+        <% else %>
+        <li class="list-item">
+          <%= link_to "Home","#" %>
+        </li>
+        <li class="list-item">
+          <%= link_to "About","#" %>
+        </li>
+        <li class="list-item">
+          <%= link_to "sign up", new_user_registration_path %>
+        </li>
+        <li class="list-item">
+          <%= link_to "login", new_user_session_path %>
+        </li>
+        <% end %>
+      </ul>
+    </nav>
+
+    <main>
+      <%= yield %>
+    </main>
+
+
   </body>
 </html>

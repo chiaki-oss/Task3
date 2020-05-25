@@ -16,9 +16,8 @@
     <nav>
       <ul class="nav-list">
         <% if user_signed_in? %>
-        
         <li class="list-item">
-          <%= link_to "Home","#" %>
+          <%= link_to "Home","user_path(current_user.id" %>
         </li>
         <li class="list-item">
           <%= link_to "Users","#" %>
@@ -29,10 +28,9 @@
         <li class="list-item">
           <%= link_to "logout",destroy_user_session_path, method: :delete %>
         </li>
-
         <% else %>
         <li class="list-item">
-          <%= link_to "Home","#" %>
+          <%= link_to "Home","user_path(current_user.id" %>
         </li>
         <li class="list-item">
           <%= link_to "About","#" %>

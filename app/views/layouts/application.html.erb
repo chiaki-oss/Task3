@@ -17,13 +17,13 @@
       <ul class="nav-list">
         <% if user_signed_in? %>
         <li class="list-item">
-          <%= link_to "Home","/" %>
+          <%= link_to "Home", user_path(current_user.id) %>
         </li>
         <li class="list-item">
-          <%= link_to "Users","user_path(current_user.id)" %>
+          <%= link_to "Users", "#" %>
         </li>
         <li class="list-item">
-          <%= link_to "Books","#" %>
+          <%= link_to "Books", books_path %>
         </li>
         <li class="list-item">
           <%= link_to "logout", destroy_user_session_path, method: :delete %>
@@ -33,7 +33,7 @@
           <%= link_to "Home","/" %>
         </li>
         <li class="list-item">
-          <%= link_to "About","top/about" %>
+          <%= link_to "About", "books/about" %>
         </li>
         <li class="list-item">
           <%= link_to "sign up", new_user_registration_path %>

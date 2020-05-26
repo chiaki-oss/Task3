@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+  #ログインしてなければ飛ばない
+
   def show
   	@user = User.find(params[:id])
   	@books = @user.books.all

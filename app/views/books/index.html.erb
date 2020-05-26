@@ -1,46 +1,70 @@
-<main>
-	<h2 class="headline">User info</h2>
-	
-	<table>
-		<tr>
-			<th class="record">Title</th>
-			<th class="record">Body</th>
-		</tr>
-		<% @books.each do |book| %>
-		<tr>
-			<th class="title"><%= book.title %></th>
-			<th class="body"><%= book.body %></th>
-			<th class="button"><%= link_to "Edit", edit_book_path(book) %>
-			</th>
-			<th class="button"><%= link_to "Destroy", book_path(book), method: :delete %>
-			</th>
-		</tr>
-		<% end %>
-	</table>
-    <!--新規投稿欄  -->
-	<h4>New book</h4>
-	<%= form_for(@book) do |f| %>
-　　<!--　エラーメッセージ  -->
-	<% if @book.errors.any? %>
-	<div id="error_explanation">
-		<h5><%= pluralize(@book.errors.count, "error") %>prohibited this article from being saved:</h5>
-		<ul>
-			<% @book.errors.full_messages.each do |message| %>
-			<li><%= message %></li>
-			<% end %>
-		</ul>
-	</div>
-	<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<h2>User info</h2>
+			<table class="table">
+				<tbody>
+					<tr>
+						<th>name</th>
+						<th></th>
+					</tr>
+					<tr>
+						<th>introduction</th>
+						<th></th>
+					</tr>
+				</tbody>
+			</table>
+			<div class="row">
+				<a href="#"></a>
+				<!-- 新規投稿 -->
+				<h4>New book</h4>
+				<%= form_for(@book) do |f| %>
+				<!--　エラーメッセージ  -->
+				<% if @book.errors.any? %>
+				<div id="error_explanation">
+					<h5><%= pluralize(@book.errors.count, "error") %>prohibited this article from being saved:</h5>
+					<ul>
+						<% @book.errors.full_messages.each do |message| %>
+						<li><%= message %></li>
+						<% end %>
+					</ul>
+				</div>
+				<% end %>
 
-	<div class="field">
-		<%= f.label :title %>
-		<%= f.text_field :title %>
+				<div class="field row">
+					<%= f.label :title %>
+					<%= f.text_field :title %>
+				</div>
+				<div class="field row">
+					<%= f.label :opinion %>
+					<%= f.text_area :body %>
+				</div>
+				<div class="actions row">
+					<%= f.submit 'Create Book' %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-9">
+			<h2>Books</h2>
+			<table class="table table-hover table-inverse">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Opinion</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @books.each do |book| %>
+					<tr>
+						<td class="title"><%= book.title %></td>
+						<td class="body"><%= book.body %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
 	</div>
-	<div class="field">
-		<%= f.label :body %>
-		<%= f.text_area :body %>
-	</div>
+</div>
 
-	<%= f.submit 'Create Book' %>
-	<% end %>
-</main>
+

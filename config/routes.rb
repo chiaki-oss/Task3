@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  root to:'top#index'
+  get 'top/about'
+  # get 'top/index'
   # get 'users/show'
-  get 'books/index'
-  get 'books/show'
-  get 'books/new'
-  get 'books/edit'
+  # get 'books/index'
+  # get 'books/show'
+  # get 'books/new'
+  # get 'books/edit'
   devise_for :users
   root 'books#index' #ログイン認証後、一覧画面へ
   resources :books

@@ -1,4 +1,8 @@
 <!-- Home画面 -->
+<!-- 更新完了 -->
+<%= flash[:success] %>
+<p class="notice"><%= notice %></p>
+
 <div class="container">
 	<div class="row">
 		<div class="col-xs-3">
@@ -11,7 +15,7 @@
 					</tr>
 					<tr>
 						<th>introduction</th>
-						<th></th>
+						<th><%= @user.introduction %></th>
 					</tr>
 				</tbody>
 			</table>

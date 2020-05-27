@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @user = User.new
+    @books = @user.books.all
   end
 
   #Home画面
@@ -18,12 +19,15 @@ class UsersController < ApplicationController
   end
   def update
   	@user = User.find(params[:id])
-  	@user.update(user_params)
-  	redirect to user_path(@user.id)
+  	if @user.update(user_params)
+      redirect_to user_path(@user.id),flash: {success: "You have updated user successfully."}
+    else
+      render :edit
+    end
   end
   private
   def user_params
-  	params.require(:user).permit(:name, :profile_image)
+  	params.require(:user).permit(:name, :profile_image, :introduction)
   end
 end
 

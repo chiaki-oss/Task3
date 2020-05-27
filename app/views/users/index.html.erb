@@ -1,4 +1,4 @@
-<!-- Home画面 -->
+<!-- Users画面 -->
 <div class="container">
 	<div class="row">
 		<div class="col-xs-3">
@@ -7,7 +7,9 @@
 				<tbody>
 					<tr>
 						<th>name</th>
-						<th><h3 class="profile-name"><%= @user.name %></h3></th>
+						<th><h3 class="profile-name">
+							
+						</h3></th>
 					</tr>
 					<tr>
 						<th>introduction</th>
@@ -21,31 +23,31 @@
 				<p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
 				<% end %>
 			</div>
-
+			
 			<div class="row">
 				<a href="#"></a>
 				<!-- 新規投稿 -->
 				<h4>New book</h4>
+				
 				
 				 <!--　エラーメッセージ  -->
 
 			</div>
 		</div>
 		<div class="col-xs-9">
-			<h2>Books</h2>
+			<h2>Users</h2>
 			<table class="table table-hover table-inverse">
 				<thead>
 					<tr>
-						<th>Title</th>
-						<th>Opinion</th>
+						<th>image</th>
+						<th>name</th>
+						<th><th class="button"><%= link_to "Show", "#" %></th>
 					</tr>
 				</thead>
 				<tbody>
+			
+				</tbody>
 			</table>
 		</div>
 	</div>
 </div>
-
-
-
-

@@ -2,9 +2,16 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   #ログインしてなければ飛ばない
 
+  #Usersページ
+  def index
+    @users = User.all
+    @user = User.new
+  end
+
+  #Home画面
   def show
   	@user = User.find(params[:id])
-  	@books = @user.books.all
+    @books = @user.books.all
   end
   def edit
   	@user = User.find(params[:id])

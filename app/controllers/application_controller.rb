@@ -9,6 +9,9 @@ class ApplicationController < ActionController::Base
 	end 
 	protected
 	def configure_permitted_parameters
+		#ユーザー登録:name,mail,password要
 		devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password])
+		#ログイン：name,password要
+		devise_parameter_sanitizer.permit(:sign_in, keys: [:name, :password])
 	end
 end

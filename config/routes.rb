@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root to:'books#home'
-  get 'books/about'
+  root to:'home#index'
+  get 'home/about'
   # get 'users/show'
   # get 'books/index'
   # get 'books/show'

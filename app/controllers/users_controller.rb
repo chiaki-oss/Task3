@@ -6,13 +6,15 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @user = User.new
-    @books = @user.books.all
+    @book = Book.new
+    @books = Book.all
   end
 
   #Home画面
   def show
   	@user = User.find(params[:id])
-    @books = @user.books.all
+    @book = Book.new
+    @books = Book.all
   end
 
   def edit

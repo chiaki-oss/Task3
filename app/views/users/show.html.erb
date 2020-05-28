@@ -20,22 +20,22 @@
 					</tr>
 				</tbody>
 			</table>
-
 			<div class="row">
 				<% if @user.id == current_user.id %>
 				<p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
 				<% end %>
 			</div>
-
+			
+			<!-- 新規投稿 -->
 			<div class="row">
-				<a href="#"></a>
-				<!-- 新規投稿 -->
-				<h4>New book</h4>
-				
-				 <!--　エラーメッセージ  -->
+				<h2>New book</h2>
+
+
 
 			</div>
 		</div>
+
+		<!-- BOOKS -->
 		<div class="col-xs-9">
 			<h2>Books</h2>
 			<table class="table table-hover table-inverse">

@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
-  def about
-  end
+  before_action :authenticate_user!
+  #ログインしてなければ飛ばない
 
   def index
   	@books = Book.all

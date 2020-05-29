@@ -6,15 +6,16 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @user = User.new
-    @book = Book.new
+    @book = Book.new    #Users画面での新規投稿フォーム用
     @books = Book.all
   end
 
   #Home画面
   def show
-  	@user = User.find(params[:id])
-    @book = Book.new
-    @books = Book.all
+  	@user = User.find(params[:id]) #db取得:profile
+    @users = User.all #profile_img用
+    @book = Book.new  #new_book
+    @books = Book.all #index/book
   end
 
   def edit

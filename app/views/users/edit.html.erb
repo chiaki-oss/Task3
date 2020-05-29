@@ -1,4 +1,16 @@
 <!--　プロフィール編集画面 -->
+<!--　エラーメッセージ  -->
+<% if @user.errors.any? %>
+<div id="error_explanation">
+  <h5><%= pluralize(@user.errors.count, "error") %>prohibited this article from being saved:</h5>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
 <div class="body-wrap">
   <div id="st-container" class="st-container">
     <div class="st-pusher">
@@ -14,22 +26,23 @@
                     </div>
                     <div class="form-body">
                       <%= form_for(@user) do |f| %>
+                      <!--  Name -->
                       <div class="form-group has-icon">
-                        <!--  Name -->
-                        <label class="control-label sr-only" for="inputName">Name</label>
+                        <label for="user_name">Name</label>
                         <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputName", placeholder:"名前" %>
                         <span class="fa fa-user form-control-icon" aria-hidden="true"></span>
                       </div>
+
                       <!-- Image -->
                       <div class="form-group has-icon">
                         <div class="user-edit-image">
                         </div>
-                        <label class="control-label sr-only" for="inputEmail">Image</label>
+                        <label for="user_image">Image</label>
                         <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "user-edit-form" %>
                       </div>
                       <!-- Introduction -->
                       <div class="form-group has-icon">
-                        <label class="control-label sr-only" for="inputIntroduction">Introduction</label>
+                        <label for="user_introduction">Introduction</label>
                         <%= f.text_area :introduction, autofocus: true, class:"form-control", id:"inputIntroduction" %>
                         <span class="fa fa-user form-control-icon" aria-hidden="true"></span>
                       </div>

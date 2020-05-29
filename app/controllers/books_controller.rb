@@ -5,7 +5,7 @@ class BooksController < ApplicationController
   def index
   	@books = Book.all
     @book = Book.new
-    @user = User.new
+    @user = User.new   #Books画面でのプロフィール表示用
   end
 
   def show
@@ -22,8 +22,9 @@ class BooksController < ApplicationController
   	if @book.save   #投稿後詳細ページへ
       redirect_to book_path(@book),flash: {complete: "You have created book successfully."}
     else
-      @books = Book.all
-      render :index
+      @books = Book.all  #投稿再取得
+      @user = User.new   #プロフィール表示用
+      render "books/index" #Booksページへ
     end
   end
 

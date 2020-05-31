@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   #ログインしてなければ飛ばない
+  before_action :ensure_correct_user,only: [:edit, :update]
+  #編集制限
 
   #Usersページ
   def index
@@ -28,6 +30,14 @@ class UsersController < ApplicationController
       redirect_to user_path(@user.id),flash: {success: "You have updated user successfully."}
     else
       render :edit
+    end
+  end
+
+  #編集制限(自分のページに戻す)
+  def ensure_correct_user
+    if params[:id].to_i != current_user.id
+      @users = User.all
+      redirect_to user_path(current_user.id)
     end
   end
 

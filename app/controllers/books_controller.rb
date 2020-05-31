@@ -1,6 +1,8 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
   #ログインしてなければ飛ばない
+  before_action :ensure_correct_user,only: [:edit, :update, :destroy]
+  #編集制限
 
   def index
   	@books = Book.all
@@ -45,6 +47,14 @@ class BooksController < ApplicationController
     book = Book.find(params[:id])
     book.destroy
     redirect_to books_path
+  end
+
+  #編集制限
+  def ensure_correct_user
+    @book = Book.find(params[:id])
+    if @book.user_id != current_user.id
+      redirect_to books_path
+    end
   end
   
   private

@@ -5,11 +5,13 @@ class BooksController < ApplicationController
   def index
   	@books = Book.all
     @book = Book.new
-    @user = User.new   #Books画面でのプロフィール表示用
+    @user = User.new
+    #Books画面でのプロフィール表示用
   end
 
   def show
     @book = Book.find(params[:id])
+    @user = @book.user  #ユーザー情報取得
   end
 
   def new
@@ -18,7 +20,7 @@ class BooksController < ApplicationController
 
   def create
   	@book = Book.new(book_params)
-    @book.user_id = current_user.id
+    @book.user_id = current_user.id  #投稿したユーザーid保存
   	if @book.save   #投稿後詳細ページへ
       redirect_to book_path(@book),flash: {complete: "You have created book successfully."}
     else

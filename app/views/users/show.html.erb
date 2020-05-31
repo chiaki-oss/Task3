@@ -72,7 +72,7 @@
 					<% @books.each do |book| %>
 					<tr>
 						<td class="title">
-							<a href = "#" ><%= book.title %></a>
+							<a href = book_path(book) ><%= book.title %></a>
 						</td>
 						<td class="body"><%= book.body %></td>
 					</tr>

@@ -50,7 +50,7 @@
 				</div>
 				<div class="actions row">
 					<%= f.submit 'Create Book' %>
-					<% end %>
+				<% end %>
 				</div>
 			</div>
 		</div>
@@ -62,8 +62,10 @@
 						<th>name</th>
 						<th><%= @book.title %></th>
 						<th><%= @book.body %></th>
+						<% if @user.id == current_user.id %>
 						<th><%= link_to "Edit", edit_book_path(@book) %></th>
 						<th class="button"><%= link_to "Destroy", book_path(@book), method: :delete %></th>
+						<% end %>
 					</tr>
 				</tbody>
 			</table>

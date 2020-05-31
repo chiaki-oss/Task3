@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   #Home画面
   def show
   	@user = User.find(params[:id]) #db取得:profile
-    @users = User.all #profile_img用
+    @users = User.all
     @book = Book.new  #new_book
     @books = Book.all #index/book
   end
@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   def edit
   	@user = User.find(params[:id])
   end
+
   def update
   	@user = User.find(params[:id])
   	if @user.update(user_params)

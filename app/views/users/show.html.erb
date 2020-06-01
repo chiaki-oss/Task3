@@ -1,7 +1,7 @@
 <!-- Home画面 -->
 <!-- 更新完了 -->
 <%= flash[:success] %>
-<p class="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
 
 <div class="container">
@@ -48,7 +48,7 @@
 					<%= f.text_field :title %>
 				</div>
 				<div class="field row">
-					<%= f.label :opinion %>
+					<%= f.label :opinion %><br>
 					<%= f.text_area :body %>
 				</div>
 				<div class="actions row">
@@ -72,9 +72,7 @@
 				<tbody>
 					<% @books.each do |book| %>
 					<tr>
-						<td>
-							<a href = user_path(book.user) ><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", class: "pull-left profile-img", size:"60x60" %>
-							</a>
+						<td><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", class: "pull-left profile-img", size:"50x50" %>
 						</td>
 						<!-- title / Books詳細へ -->
 						<td class="title">

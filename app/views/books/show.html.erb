@@ -1,10 +1,10 @@
 <!-- 投稿詳細ページ -->
 <!-- 投稿完了 -->
 <%= flash[:complete] %>
-<p class="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 <!-- 更新完了 -->
 <%= flash[:success] %>
-<p class="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
 <!--　エラーメッセージ  -->
 <% if @book.errors.any? %>
@@ -22,7 +22,7 @@
 	<div class="row">
 		<div class="col-xs-3">
 			<h2>User info</h2>
-			<%= attachment_image_tag current_user, :profile_image, format: 'jpeg', fallback: "no_image.jpg",size: "100x100" %>
+			<%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg",size: "100x100" %>
 			<table class="table">
 				<tbody>
 					<tr>
@@ -63,17 +63,10 @@
 		<div class="col-xs-9">
 			<h2>Book detail</h2>
 			<table class="table table-hover table-inverse">
-				<thead>
-					<tr>
-						<th></th>
-						<th>Title</th>
-						<th>Opinion</th>
-					</tr>
-				</thead>
 				<tbody>
 					<tr>
 						<!-- profile-img / Users詳細 -->
-						<th><%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg",size: "50x50" %><br>
+						<th><%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg",size: "100x100" %><br>
 							<%= link_to @user.name, user_path(@book.user) %>
 						</th>
 						<th><%= @book.title %></th>

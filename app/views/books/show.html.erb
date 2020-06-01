@@ -72,7 +72,9 @@
 				</thead>
 				<tbody>
 					<tr>
-						<th><%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg",size: "50x50" %><br><%= @user.name %>
+						<!-- profile-img / Users詳細 -->
+						<th><%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg",size: "50x50" %><br>
+							<%= link_to @user.name, user_path(@book.user) %>
 						</th>
 						<th><%= @book.title %></th>
 						<th><%= @book.body %></th>

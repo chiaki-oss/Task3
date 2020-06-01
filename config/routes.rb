@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to:'home#index'
   get 'home/about'
+  post 'home/logout'
   # get 'users/show'
   # get 'books/index'
   # get 'books/show'

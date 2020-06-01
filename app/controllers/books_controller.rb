@@ -5,15 +5,15 @@ class BooksController < ApplicationController
   #編集制限
 
   def index
-  	@books = Book.all
-    @book = Book.new
-    @user = User.new
-    #Books画面でのプロフィール表示用
+  	@books = Book.all  #indexbook
+    @book = Book.new  #newbook
+    params[:id] = current_user.id
+    @user = User.find(params[:id])  #user:db取得
   end
 
   def show
     @book = Book.find(params[:id])
-    @user = @book.user  #ユーザー情報取得
+    @user = @book.user  #booksからユーザー情報取得
   end
 
   def new

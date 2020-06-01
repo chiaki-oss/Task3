@@ -14,10 +14,9 @@ class UsersController < ApplicationController
 
   #Home画面
   def show
-  	@user = User.find(params[:id]) #db取得:profile
-    @users = User.all
+  	@user = User.find(params[:id]) #db取得:profile表示
     @book = Book.new  #new_book
-    @books = Book.all #index/book
+    @books = @user.books #index/book (userの投稿のみ表示)
   end
 
   def edit

@@ -37,7 +37,10 @@
 			</table>
 			<div class="row">
 				<% if @user.id == current_user.id %>
-				<p><%= link_to "プロフィール編集", edit_user_path(current_user), class: "pull-right" %></p>
+				<p><%= link_to "",edit_user_path(current_user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %></p>
+				<% else %>
+				<p><%= link_to "",user_path(current_user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %></p>
+
 				<% end %>
 			</div>
 
@@ -55,7 +58,7 @@
 					<%= f.text_area :body %>
 				</div>
 				<div class="actions row">
-					<%= f.submit 'Create Book' %>
+					<%= f.submit 'Create Book',class:"btn btn-primary col-xs-12"  %>
 				<% end %>
 				</div>
 			</div>
@@ -66,14 +69,14 @@
 				<tbody>
 					<tr>
 						<!-- profile-img / Users詳細 -->
-						<th><%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg",size: "100x100" %><br>
+						<th><%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg",size: "40x40" %><br>
 							<%= link_to @user.name, user_path(@book.user) %>
 						</th>
 						<th><%= @book.title %></th>
 						<th><%= @book.body %></th>
 						<% if @user.id == current_user.id %>
-						<th><%= link_to "Edit", edit_book_path(@book) %></th>
-						<th class="button"><%= link_to "Destroy", book_path(@book), method: :delete %></th>
+						<th><%= link_to "Edit", edit_book_path(@book),class:"btn-sm btn-success" %></th>
+						<th class="button"><%= link_to "Destroy", book_path(@book), method: :delete,class:"btn-sm btn-danger" %></th>
 						<% end %>
 					</tr>
 				</tbody>

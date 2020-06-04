@@ -8,7 +8,7 @@
 				<tbody>
 					<tr>
 						<th>name</th>
-						<th><h3 class="profile-name"><%= current_user.name %></h3></th>
+						<th><%= current_user.name %></th>
 					</tr>
 					<tr>
 						<th>introduction</th>
@@ -18,7 +18,7 @@
 			</table>
 			<div class="row">
 				<% if @user.id == current_user.id %>
-				<p><%= link_to "プロフィール編集", edit_user_path(current_user), class: "pull-right" %></p>
+				<p><%= link_to "プロフィール編集", edit_user_path(current_user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %></p>
 				<% end %>
 			</div>
 			
@@ -48,7 +48,7 @@
 					<%= f.text_area :body %>
 				</div>
 				<div class="actions row">
-					<%= f.submit 'Create Book' %>
+					<%= f.submit 'Create Book',class:"btn btn-primary col-xs-12"  %>
 					<% end %>
 				</div>
 			</div>
